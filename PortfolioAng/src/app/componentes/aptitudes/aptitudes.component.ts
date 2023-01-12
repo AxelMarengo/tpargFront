@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Aptitud } from './aptitudes.model';
 
 @Component({
   selector: 'app-aptitudes',
@@ -6,6 +7,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./aptitudes.component.css']
 })
 export class AptitudesComponent {
+  
+  aptitudes:Aptitud[]=[
+    new Aptitud("Trabajo en equipo"),
+    new Aptitud("Creatividad"),
+    new Aptitud("Ingles")
+  ]
+
   onClick(){
     console.log("click")
   }
