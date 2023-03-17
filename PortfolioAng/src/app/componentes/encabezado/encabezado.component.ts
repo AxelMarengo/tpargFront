@@ -7,4 +7,7 @@ import { Component } from '@angular/core';
 })
 export class EncabezadoComponent {
 
+  onClick() {
+  console.log("click")
+  }
 }

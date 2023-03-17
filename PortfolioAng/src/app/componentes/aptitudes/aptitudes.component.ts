@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Aptitud } from './aptitudes.model';
+import { Link } from './links.model';
 
 @Component({
   selector: 'app-aptitudes',
@@ -14,7 +15,17 @@ export class AptitudesComponent {
     new Aptitud("Ingles")
   ]
 
+  links:Link[]=[
+    new Link("https://github.com/AxelMarengo/tpargFront"),
+  ]
+
   onClick(){
+    console.log("click")
+  }
+  addLink(){
+    console.log("click")
+  }
+  editLink(){
     console.log("click")
   }
 }

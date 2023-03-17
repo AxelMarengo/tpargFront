@@ -7,11 +7,11 @@
 </div>
 
 <h2>Proyectos</h2>
-<ul>
-  <li><a href="https://github.com/AxelMarengo/tpargFront">
-     https://github.com/AxelMarengo/tpargFront </a>
-     <button class="btn btn-primary" (click)="onClick()">
+<div *ngFor="let link of links">
+  <li><a href="{{link.lin}}"> {{link.lin}} </a>
+     <button class="btn btn-primary" (click)="editLink()">
       Edit</button>
-      <button class="btn btn-primary" (click)="onClick()">
-      Add</button></li>
-</ul>
+      <button class="btn btn-primary" (click)="addLink()">
+      Add</button>
+  </li>
+</div>

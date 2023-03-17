@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./acerca.component.css']
 })
 export class AcercaComponent {
-  yo="Estudiante en UTN, reside en Rosario, Santa Fe, Argentina";
+  yo="Estudiante en UTN, 23 años";
   onClick(){
     console.log("click")
   }
