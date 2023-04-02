@@ -1,8 +1,14 @@
-<h2>Educacion</h2>
+<div>
+    <div class="">
+        <h2>Educacion</h2>
+        <button class="btn btn-primary" (click)="add()">Add</button>
+    </div>
 
     <div *ngFor="let educacion of educaciones">
         <li>{{educacion.edu}}
-        <button class="btn btn-primary" (click)="onClick()">
-        Edit</button></li>
+        <button class="btn btn-primary" (click)="onClick()">Edit</button>
+        <button class="btn btn-primary" (click)="onClick()">Delete</button>
+        </li>
     </div>
+</div>
 

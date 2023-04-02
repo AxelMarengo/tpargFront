@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-encabezado',
@@ -7,7 +8,14 @@ import { Component } from '@angular/core';
 })
 export class EncabezadoComponent {
 
+  constructor (private router:Router) { }
+
   onClick() {
-  console.log("click")
+    console.log("click")
   }
+
+  login() {
+    this.router.navigate(['login'])
+  }
+
 }

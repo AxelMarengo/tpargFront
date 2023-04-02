@@ -8,6 +8,17 @@ import { AcercaComponent } from './componentes/acerca/acerca.component';
 import { ExperienciaComponent } from './componentes/experiencia/experiencia.component';
 import { FormsModule } from '@angular/forms';
 import { EducacionComponent } from './componentes/educacion/educacion.component';
+import { LoginComponent } from './componentes/login/login.component';
+import { RouterModule, Routes } from '@angular/router';
+import { HomeComponent } from './componentes/home/home.component';
+import { FormuComponent } from './componentes/formu/formu.component';
+
+const appRoutes:Routes=[
+  {path:'', component:HomeComponent },
+  {path:'login', component:LoginComponent },
+  {path:'formu', component:FormuComponent },
+  
+]
 
 @NgModule({
   declarations: [
@@ -17,11 +28,15 @@ import { EducacionComponent } from './componentes/educacion/educacion.component'
     AcercaComponent,
     ExperienciaComponent,
     EducacionComponent,
+    LoginComponent,
+    HomeComponent,
+    FormuComponent,
 
   ],
   imports: [
     BrowserModule,FormsModule,
     HttpClientModule,
+    RouterModule.forRoot(appRoutes)
   ],
   providers: [],
   bootstrap: [AppComponent]
