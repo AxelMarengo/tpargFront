@@ -7,9 +7,12 @@ import { Educacion } from './educacion.model';
   templateUrl: './educacion.component.html',
   styleUrls: ['./educacion.component.css']
 })
+
+
 export class EducacionComponent {
-   
-  constructor (private router:Router) { }
+  
+  isEditing = false;
+  isAdding = false;
 
   educaciones:Educacion[]=[
     new Educacion("Secundaria completa en sagrado corazon"),
@@ -17,13 +20,33 @@ export class EducacionComponent {
     new Educacion("Ingles en Aricana")
   ]
 
-  add() {
-    this.router.navigate(['formu'])
-  }
+  add() { 
+    let miEdu=new Educacion(this.edu)
+    this.educaciones.push(miEdu)
+   } 
 
-  onClick(){
-    console.log("click")
-  }
+  adding() { 
+    if (this.isAdding) {
+      this.isAdding = false
+    } else {
+      this.isAdding = true
+    }
+  } 
 
+   edit() { 
+    console.log("edit")
+    if (this.isEditing) {
+      this.isEditing = false
+    } else {
+      this.isEditing = true
+    }
+   } 
+
+  eliminar(indice:Educacion){
+    this.educaciones = this.educaciones.filter(edu => edu != indice);
+  }
   
+  edu:string="";
+
+
 }

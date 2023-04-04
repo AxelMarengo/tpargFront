@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { Aptitud } from './aptitudes.model';
-import { Link } from './links.model';
 
 @Component({
   selector: 'app-aptitudes',
@@ -8,6 +7,10 @@ import { Link } from './links.model';
   styleUrls: ['./aptitudes.component.css']
 })
 export class AptitudesComponent {
+
+  isEditing = false;
+  isAdding = false;
+  apt:string="";
   
   aptitudes:Aptitud[]=[
     new Aptitud("Trabajo en equipo"),
@@ -15,17 +18,30 @@ export class AptitudesComponent {
     new Aptitud("Ingles")
   ]
 
-  links:Link[]=[
-    new Link("https://github.com/AxelMarengo/tpargFront"),
-  ]
+  add() { 
+    let miApt=new Aptitud(this.apt)
+    this.aptitudes.push(miApt)
+   } 
 
-  onClick(){
-    console.log("click")
+  adding() { 
+    if (this.isAdding) {
+      this.isAdding = false
+    } else {
+      this.isAdding = true
+    }
+  } 
+
+   edit() { 
+    console.log("edit")
+    if (this.isEditing) {
+      this.isEditing = false
+    } else {
+      this.isEditing = true
+    }
+   } 
+
+  eliminar(indice:Aptitud){
+    this.aptitudes = this.aptitudes.filter(apt => apt != indice);
   }
-  addLink(){
-    console.log("click")
-  }
-  editLink(){
-    console.log("click")
-  }
+
 }

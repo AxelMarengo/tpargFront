@@ -1,0 +1,17 @@
+<div>
+  <h2>
+    Proyectos
+    <i class="uil uil-edit" (click)="edit()" style="color: #65B315"></i>
+    <i class="uil uil-plus-square" (click)="adding()" style="color: #0FB7E8"></i>
+  </h2>
+  <div *ngIf="isAdding">
+    <input type="text" [(ngModel)]="proye">
+    <i class="uil uil-plus-circle" (click)="add()" style="color: #0FB7E8"></i>
+  </div>
+  <div *ngFor="let proyecto of proyectos">
+    <li  *ngIf="!isEditing" > <a href="{{proyecto.proye}}">{{proyecto.proye}}</a>
+      <i class="uil uil-ban" (click)="eliminar(proyecto)" style="color: #FB0000" ></i>
+    </li> 
+    <input *ngIf="isEditing" [(ngModel)]="proyecto.proye"> 
+  </div>
+</div>

@@ -1,4 +1,5 @@
 export class Experiencia { 
+  
   exp:string=""
 
     constructor (exp:string) { 

@@ -11,12 +11,11 @@ import { EducacionComponent } from './componentes/educacion/educacion.component'
 import { LoginComponent } from './componentes/login/login.component';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './componentes/home/home.component';
-import { FormuComponent } from './componentes/formu/formu.component';
+import { ProyectosComponent } from './componentes/proyectos/proyectos.component';
 
 const appRoutes:Routes=[
   {path:'', component:HomeComponent },
   {path:'login', component:LoginComponent },
-  {path:'formu', component:FormuComponent },
   
 ]
 
@@ -30,7 +29,7 @@ const appRoutes:Routes=[
     EducacionComponent,
     LoginComponent,
     HomeComponent,
-    FormuComponent,
+    ProyectosComponent,
 
   ],
   imports: [

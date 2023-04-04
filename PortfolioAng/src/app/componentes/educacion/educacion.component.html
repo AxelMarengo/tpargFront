@@ -1,14 +1,18 @@
 <div>
-    <div class="">
-        <h2>Educacion</h2>
-        <button class="btn btn-primary" (click)="add()">Add</button>
+    <h2>
+      Educacion
+      <i class="uil uil-edit" (click)="edit()" style="color: #65B315"></i>
+      <i class="uil uil-plus-square" (click)="adding()" style="color: #0FB7E8"></i>
+    </h2>
+    <div *ngIf="isAdding">
+      <input type="text" [(ngModel)]="edu">
+      <i class="uil uil-plus-circle" (click)="add()" style="color: #0FB7E8"></i>
     </div>
-
     <div *ngFor="let educacion of educaciones">
-        <li>{{educacion.edu}}
-        <button class="btn btn-primary" (click)="onClick()">Edit</button>
-        <button class="btn btn-primary" (click)="onClick()">Delete</button>
-        </li>
+      <li *ngIf="!isEditing">{{educacion.edu}}
+        <i class="uil uil-ban" (click)="eliminar(educacion)" style="color: #FB0000" ></i>
+      </li> 
+      <input *ngIf="isEditing" [(ngModel)]="educacion.edu"> 
     </div>
-</div>
-
+  </div>
+  

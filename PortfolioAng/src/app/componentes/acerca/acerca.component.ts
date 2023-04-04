@@ -7,8 +7,4 @@ import { Component } from '@angular/core';
 })
 export class AcercaComponent {
   yo="Estudiante en UTN, 23 años";
-  onClick(){
-    console.log("click")
-    
-  }
 }
