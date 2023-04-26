@@ -1,12 +1,13 @@
 <div>
     <div>
-        <img src="./assets/foto.jpeg" class="yo" height="140px" style="border-radius: 50%">
-        <h1>Axel Marengo</h1>
+        <img src="{{persona.img}}" class="yo" height="140px" style="border-radius: 50%">
+        <h1>{{persona.nombre}} {{persona.apellido}}</h1>
         <p>Fullstack developer Jr</p>
         <p>Rosario (Argentina)</p>
     </div>
     <div>
         <h2>acerca de mi</h2>
-        <p> {{yo}} </p> 
+        <p>{{persona.descripcion}} </p> 
+        <br> 
     </div>
 </div>

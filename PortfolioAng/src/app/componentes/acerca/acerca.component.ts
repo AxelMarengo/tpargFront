@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Persona } from './persona.model';
+import { PersonaService } from 'src/app/servicios/persona.service';
 
 @Component({
   selector: 'app-acerca',
@@ -6,5 +8,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./acerca.component.css']
 })
 export class AcercaComponent {
-  yo="Estudiante en UTN, 23 años";
+  persona:Persona = new Persona("","",'',''); 
+
+  constructor(public personaService: PersonaService){  }
+
+  ngOnInit(): void { 
+    this.personaService.getPersona().subscribe(data => {this.persona = data})
+   }
 }
