@@ -11,17 +11,20 @@ import { Educacion } from './educacion.model';
 
 export class EducacionComponent {
   
+
+  nombre:string="";
+  descripcion:string="";
   isEditing = false;
   isAdding = false;
 
   educaciones:Educacion[]=[
-    new Educacion("Secundaria completa en sagrado corazon"),
-    new Educacion("Estudiante en ing en sistemas en UTN"),
-    new Educacion("Ingles en Aricana")
+    new Educacion("colegio","Secundaria completa en sagrado corazon"),
+    new Educacion("facu","Estudiante en ing en sistemas en UTN"),
+    new Educacion("ingles","Ingles en Aricana")
   ]
 
   add() { 
-    let miEdu=new Educacion(this.edu)
+    let miEdu=new Educacion(this.nombre,this.descripcion)
     this.educaciones.push(miEdu)
    } 
 
@@ -46,7 +49,7 @@ export class EducacionComponent {
     this.educaciones = this.educaciones.filter(edu => edu != indice);
   }
   
-  edu:string="";
+
 
 
 }
