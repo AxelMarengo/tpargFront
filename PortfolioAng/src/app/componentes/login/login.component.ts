@@ -1,20 +1,21 @@
-import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { Component } from "@angular/core";
 
 @Component({
-  selector: 'app-login',
+  selector: "app-login",
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  styleUrls: ["./login.component.css"],
 })
 export class LoginComponent {
-  logged = false;
-  username = "";
-  password = "";
+  email!: string;
+  password!: string;
+
+  constructor(private router: Router) {}
 
   login() {
-    if (this.username === 'admin' && this.password === 'admin') {
-      this.logged = true
-    } else {
-      console.log('Invalid username or password');
-    }
+    console.log(this.email);
+    console.log(this.password);
+    if (this.email=="juan") {console.log("pablo")};
+    this.router.navigate(['/']);
   }
 }

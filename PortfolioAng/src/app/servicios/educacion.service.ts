@@ -8,19 +8,27 @@ import { Educacion } from '../componentes/educacion/educacion.model';
   providedIn: 'root'
 })
 export class EducacionService {
-  URL = 'http://localhost:8080/educacion'
+  URL = 'http://localhost:8080/educacion/'
 
   constructor(private http: HttpClient) { }
 
-  public lista(): Observable<Educacion>{ 
-    return this.http.get<Educacion>(this.URL+ '/verlista')
+  public lista(): Observable<Educacion[]>{ 
+    return this.http.get<Educacion[]>(this.URL+ 'verlista')
   }
 
-  public new(educacion: Educacion): Observable<any>{ 
-    return this.http.post<any>(this.URL+ '/new', educacion)
+  public detail(id: number): Observable<Educacion>{
+    return this.http.get<Educacion>(this.URL + `detail/${id}`);
+  }
+
+  public save(educacion: Educacion): Observable<any>{
+    return this.http.post<any>(this.URL + 'create', educacion);
+  }
+
+  public update(id: number, educacion: Educacion): Observable<any>{
+    return this.http.put<any>(this.URL + `update/${id}`, educacion);
   }
 
   public delete(id: number): Observable<any>{ 
-    return this.http.delete<any>(this.URL+`/delete/${id}`)
+    return this.http.delete<any>(this.URL+`delete/${id}`)
   }
 }

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { Educacion } from './educacion.model';
+import { EducacionService } from 'src/app/servicios/educacion.service';
 
 @Component({
   selector: 'app-educacion',
@@ -11,45 +12,31 @@ import { Educacion } from './educacion.model';
 
 export class EducacionComponent {
   
+  educacion:Educacion[]=[]
+  isLogged = true;
 
-  nombre:string="";
-  descripcion:string="";
-  isEditing = false;
-  isAdding = false;
+  constructor(public educacionService: EducacionService){  }
 
-  educaciones:Educacion[]=[
-    new Educacion("colegio","Secundaria completa en sagrado corazon"),
-    new Educacion("facu","Estudiante en ing en sistemas en UTN"),
-    new Educacion("ingles","Ingles en Aricana")
-  ]
-
-  add() { 
-    let miEdu=new Educacion(this.nombre,this.descripcion)
-    this.educaciones.push(miEdu)
-   } 
-
-  adding() { 
-    if (this.isAdding) {
-      this.isAdding = false
-    } else {
-      this.isAdding = true
-    }
-  } 
-
-   edit() { 
-    console.log("edit")
-    if (this.isEditing) {
-      this.isEditing = false
-    } else {
-      this.isEditing = true
-    }
-   } 
-
-  eliminar(indice:Educacion){
-    this.educaciones = this.educaciones.filter(edu => edu != indice);
+  ngOnInit() {
+    this.cargarEducacion();
   }
-  
 
+  cargarEducacion(): void{
+    this.educacionService.lista().subscribe((educacion) => {
+      this.educacion = educacion
+    });
+  }
 
+  delete(id?: number){
+    if( id != undefined){
+      this.educacionService.delete(id).subscribe(
+        data => {
+          this.cargarEducacion();
+        }, err => {
+          alert("No se pudo eliminar");
+        }
+      )
+    }
+  }
 
 }
