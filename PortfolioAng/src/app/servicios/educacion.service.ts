@@ -13,7 +13,7 @@ export class EducacionService {
   constructor(private http: HttpClient) { }
 
   public lista(): Observable<Educacion[]>{ 
-    return this.http.get<Educacion[]>(this.URL+ 'verlista')
+    return this.http.get<Educacion[]>(this.URL+ 'verlista');
   }
 
   public detail(id: number): Observable<Educacion>{
@@ -24,11 +24,11 @@ export class EducacionService {
     return this.http.post<any>(this.URL + 'create', educacion);
   }
 
-  public update(id: number, educacion: Educacion): Observable<any>{
-    return this.http.put<any>(this.URL + `update/${id}`, educacion);
-  }
-
   public delete(id: number): Observable<any>{ 
     return this.http.delete<any>(this.URL+`delete/${id}`)
+  }
+
+  public update(id: number, educacion: Educacion): Observable<any>{
+    return this.http.put<Educacion>(this.URL + `update/${id}`, educacion);
   }
 }

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Experiencia } from './experiencia.model';
+import { ExperienciaService } from 'src/app/servicios/experiencia.service.ts.service';
 
 @Component({
   selector: 'app-experiencia',
@@ -8,42 +9,31 @@ import { Experiencia } from './experiencia.model';
 })
 
 export class ExperienciaComponent {
-  
-  isEditing = false;
-  isAdding = false;
+  experiencia:Experiencia[]=[]
+  isLogged = true;
 
-  experiencias:Experiencia[]=[
-    new Experiencia("praxair"),
-    new Experiencia("linde"),
-  ]
+  constructor(public experienciaService: ExperienciaService){  }
 
-  add() { 
-    let miExp=new Experiencia(this.exp)
-    this.experiencias.push(miExp)
-   } 
-
-  adding() { 
-    if (this.isAdding) {
-      this.isAdding = false
-    } else {
-      this.isAdding = true
-    }
-  } 
-
-   edit() { 
-    console.log("edit")
-    if (this.isEditing) {
-      this.isEditing = false
-    } else {
-      this.isEditing = true
-    }
-   } 
-
-  eliminar(indice:Experiencia){
-    this.experiencias = this.experiencias.filter(exp => exp != indice);
+  ngOnInit() {
+    this.cargarExperiencia();
   }
-  
-  exp:string="";
 
+  cargarExperiencia(): void{
+    this.experienciaService.lista().subscribe((experiencia) => {
+      this.experiencia = experiencia
+    });
+  }
+
+  delete(id?: number){
+    if( id != undefined){
+      this.experienciaService.delete(id).subscribe(
+        data => {
+          this.cargarExperiencia();
+        }, err => {
+          alert("No se pudo eliminar");
+        }
+      )
+    }
+  }
 
 }

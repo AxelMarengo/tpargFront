@@ -1,17 +1,31 @@
-<div>
-  <h2>
-    Experiencia
-    <i class="uil uil-edit" (click)="edit()" style="color: #65B315"></i>
-    <i class="uil uil-plus-square" (click)="adding()" style="color: #0FB7E8"></i>
-  </h2>
-  <div *ngIf="isAdding">
-    <input type="text" [(ngModel)]="exp">
-    <i class="uil uil-plus-circle" (click)="add()" style="color: #0FB7E8"></i>
+<div class="row">
+  <h1>Experiencia</h1>
+  <div class="col-lg-2">
+      <button type="button" class="btn btn-dark" routerLink="/nuevaexp" *ngIf="isLogged">
+          Agregar experiencia
+      </button>
   </div>
-  <div *ngFor="let experiencia of experiencias">
-    <li *ngIf="!isEditing">{{experiencia.exp}}
-      <i class="uil uil-ban" (click)="eliminar(experiencia)" style="color: #FB0000" ></i>
-    </li> 
-    <input *ngIf="isEditing" [(ngModel)]="experiencia.exp"> 
+
+  <div class="col lg 1"></div>
+  <div class="col-lg-11">
+      <table class="table">
+          <tbody>
+              <tr *ngFor="let Experiencia of experiencia">
+                  <td>
+                      <h2>{{Experiencia.nombre}}</h2>
+                  </td>
+                  <td>{{Experiencia.descripcion}}</td>
+                  <td *ngIf="isLogged">
+                      <button class="btn btn-light" routerLink="/editexp/{{Experiencia.id}}">
+                          <i class="bi bi-pencil-fill"></i> EDITAR</button>
+                  </td>
+                  <td *ngIf="isLogged">
+                      <button class="btn btn-danger" (click)="delete(Experiencia.id)">
+                          <i class="bi bi-trash-fill"></i> BORRAR</button>
+                  </td>
+              </tr>
+          </tbody>
+      </table>
   </div>
+
 </div>

@@ -9,7 +9,7 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./editeducacion.component.css']
 })
 export class EditeducacionComponent implements OnInit {
-  educacion:Educacion = new Educacion("",""); 
+  educacion: Educacion = null;
 
   constructor(
     private educacionService: EducacionService,
@@ -30,14 +30,10 @@ export class EditeducacionComponent implements OnInit {
   }
 
   onUpdate(): void{
+    console.log(this.educacion)
     const id = this.activatedRouter.snapshot.params['id'];
-    this.educacionService.update(id, this.educacion).subscribe(
-      data => {
-        this.router.navigate(['']);
-      }, err => {
-        alert("Error al modificar la educacion");
-        this.router.navigate(['']);
-      }
-    )
+    this.educacionService.update(id, this.educacion)
+    console.log(this.educacion)
+    this.router.navigate([''])
   }
 }
