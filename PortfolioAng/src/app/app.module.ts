@@ -29,6 +29,9 @@ const appRoutes:Routes=[
   {path:'nuevaapt', component:NewaptitudComponent},
   {path:'nuevoproye', component:NewproyectoComponent},
   {path:'editedu/:id', component:EditeducacionComponent },
+  {path:'editexp/:id', component:EditexperienciaComponent },
+  {path:'editapt/:id', component:EditaptitudComponent },
+  {path:'editproye/:id', component:EditproyectoComponent },
 ]
 
 @NgModule({
