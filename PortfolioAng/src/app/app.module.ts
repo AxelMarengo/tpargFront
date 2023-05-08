@@ -20,6 +20,7 @@ import { NewaptitudComponent } from './componentes/aptitudes/newaptitud.componen
 import { EditaptitudComponent } from './componentes/aptitudes/editaptitud.component';
 import { EditproyectoComponent } from './componentes/proyectos/editproyecto.component';
 import { NewproyectoComponent } from './componentes/proyectos/newproyecto.component';
+import { NgCircleProgressModule } from 'ng-circle-progress';
 
 const appRoutes:Routes=[
   {path:'', component:HomeComponent },
@@ -60,6 +61,7 @@ const appRoutes:Routes=[
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    NgCircleProgressModule.forRoot({}),
     RouterModule.forRoot(appRoutes)
   ],
   providers: [],

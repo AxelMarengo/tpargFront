@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 })
 export class NewaptitudComponent {
   nombre: string="";
-  descripcion: string="";
+  descripcion: number;
 
   constructor(private aptitudService: AptitudService, private router: Router) { }
 
