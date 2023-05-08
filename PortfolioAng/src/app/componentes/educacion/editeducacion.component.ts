@@ -30,10 +30,8 @@ export class EditeducacionComponent implements OnInit {
   }
 
   onUpdate(): void{
-    console.log(this.educacion)
     const id = this.activatedRouter.snapshot.params['id'];
     this.educacionService.update(id, this.educacion)
-    console.log(this.educacion)
     this.router.navigate([''])
   }
 }

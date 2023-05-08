@@ -1,9 +1,11 @@
 export class Proyecto { 
+  id?: number;
+  nombre: string;
+  descripcion: string;
 
-  proye:string=""
-
-    constructor (proye:string) { 
-        this.proye=proye;
-     }
+  constructor (nombre:string,descripcion:string) { 
+    this.nombre=nombre;
+    this.descripcion=descripcion;
+  }
 
 }

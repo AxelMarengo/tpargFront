@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Proyecto } from './proyectos.model';
+import { ProyectoService } from 'src/app/servicios/proyecto.service';
 
 @Component({
   selector: 'app-proyectos',
@@ -8,41 +9,32 @@ import { Proyecto } from './proyectos.model';
 })
 
 export class ProyectosComponent {
-
-  isEditing = false;
-  isAdding = false;
-
-  proyectos:Proyecto[]=[
-    new Proyecto("https://github.com/AxelMarengo/tpargFront"),
-  ]
-
-
-  add() { 
-    let miProye=new Proyecto(this.proye)
-    this.proyectos.push(miProye)
-   } 
-
-  adding() { 
-    if (this.isAdding) {
-      this.isAdding = false
-    } else {
-      this.isAdding = true
-    }
-  } 
-
-   edit() { 
-    console.log("edit")
-    if (this.isEditing) {
-      this.isEditing = false
-    } else {
-      this.isEditing = true
-    }
-   } 
-
-  eliminar(indice:Proyecto){
-    this.proyectos = this.proyectos.filter(proye => proye != indice);
-  }
   
-  proye:string="";
+  proyecto:Proyecto[]=[]
+  isLogged = true;
+
+  constructor(public proyectoService: ProyectoService){  }
+
+  ngOnInit() {
+    this.cargarProyecto();
+  }
+
+  cargarProyecto(): void{
+    this.proyectoService.lista().subscribe((proyecto) => {
+      this.proyecto = proyecto
+    });
+  }
+
+  delete(id?: number){
+    if( id != undefined){
+      this.proyectoService.delete(id).subscribe(
+        data => {
+          this.cargarProyecto();
+        }, err => {
+          alert("No se pudo eliminar");
+        }
+      )
+    }
+  }
 
 }

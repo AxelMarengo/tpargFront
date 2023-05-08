@@ -16,12 +16,18 @@ import { NeweducacionComponent } from './componentes/educacion/neweducacion.comp
 import { EditeducacionComponent } from './componentes/educacion/editeducacion.component';
 import { NewexperienciaComponent } from './componentes/experiencia/newexperiencia.component';
 import { EditexperienciaComponent } from './componentes/experiencia/editexperiencia.component';
+import { NewaptitudComponent } from './componentes/aptitudes/newaptitud.component';
+import { EditaptitudComponent } from './componentes/aptitudes/editaptitud.component';
+import { EditproyectoComponent } from './componentes/proyectos/editproyecto.component';
+import { NewproyectoComponent } from './componentes/proyectos/newproyecto.component';
 
 const appRoutes:Routes=[
   {path:'', component:HomeComponent },
   {path:'login', component:LoginComponent },
   {path:'nuevaedu', component:NeweducacionComponent},
   {path:'nuevaexp', component:NewexperienciaComponent},
+  {path:'nuevaapt', component:NewaptitudComponent},
+  {path:'nuevoproye', component:NewproyectoComponent},
   {path:'editedu/:id', component:EditeducacionComponent },
 ]
 
@@ -40,6 +46,10 @@ const appRoutes:Routes=[
     EditeducacionComponent,
     NewexperienciaComponent,
     EditexperienciaComponent,
+    NewaptitudComponent,
+    EditaptitudComponent,
+    EditproyectoComponent,
+    NewproyectoComponent,
 
   ],
   imports: [

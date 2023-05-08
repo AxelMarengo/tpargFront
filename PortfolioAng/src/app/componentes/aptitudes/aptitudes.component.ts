@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Aptitud } from './aptitudes.model';
+import { AptitudService } from 'src/app/servicios/aptitud.service';
 
 @Component({
   selector: 'app-aptitudes',
@@ -7,41 +8,32 @@ import { Aptitud } from './aptitudes.model';
   styleUrls: ['./aptitudes.component.css']
 })
 export class AptitudesComponent {
-
-  isEditing = false;
-  isAdding = false;
-  apt:string="";
+    
+    aptitud:Aptitud[]=[]
+    isLogged = true;
   
-  aptitudes:Aptitud[]=[
-    new Aptitud("Trabajo en equipo"),
-    new Aptitud("Creatividad"),
-    new Aptitud("Ingles")
-  ]
-
-  add() { 
-    let miApt=new Aptitud(this.apt)
-    this.aptitudes.push(miApt)
-   } 
-
-  adding() { 
-    if (this.isAdding) {
-      this.isAdding = false
-    } else {
-      this.isAdding = true
+    constructor(public aptitudService: AptitudService){  }
+  
+    ngOnInit() {
+      this.cargarAptitud();
     }
-  } 
-
-   edit() { 
-    console.log("edit")
-    if (this.isEditing) {
-      this.isEditing = false
-    } else {
-      this.isEditing = true
+  
+    cargarAptitud(): void{
+      this.aptitudService.lista().subscribe((aptitud) => {
+        this.aptitud = aptitud
+      });
     }
-   } 
-
-  eliminar(indice:Aptitud){
-    this.aptitudes = this.aptitudes.filter(apt => apt != indice);
+  
+    delete(id?: number){
+      if( id != undefined){
+        this.aptitudService.delete(id).subscribe(
+          data => {
+            this.cargarAptitud();
+          }, err => {
+            alert("No se pudo eliminar");
+          }
+        )
+      }
+    }
+  
   }
-
-}

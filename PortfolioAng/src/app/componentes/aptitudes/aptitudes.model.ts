@@ -1,8 +1,11 @@
 export class Aptitud { 
+  id?: number;
+  nombre: string;
+  descripcion: string;
 
-    constructor (apt:string) { 
-        this.apt=apt
-     }
+  constructor (nombre:string,descripcion:string) { 
+    this.nombre=nombre;
+    this.descripcion=descripcion;
+  }
 
-  apt:string=""
 }

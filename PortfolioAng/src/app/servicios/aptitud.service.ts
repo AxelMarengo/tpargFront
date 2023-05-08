@@ -9,7 +9,7 @@ import { Observable } from 'rxjs';
 export class AptitudService {
 
 
-  URL = 'http://localhost:8080/aptitud/'
+  URL = 'http://localhost:8080/skill/'
 
   constructor(private http: HttpClient) { }
 
