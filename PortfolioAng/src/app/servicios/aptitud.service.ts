@@ -9,7 +9,8 @@ import { Observable } from 'rxjs';
 export class AptitudService {
 
 
-  URL = 'http://localhost:8080/skill/'
+  // URL = 'http://localhost:8080/skill/'
+  URL = 'https://portfolio-backend-1h0p.onrender.com/skill/'
 
   constructor(private http: HttpClient) { }
 

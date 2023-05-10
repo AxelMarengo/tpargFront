@@ -8,7 +8,8 @@ import { HttpClient } from '@angular/common/http';
 })
 export class ProyectoService {
 
-  URL = 'http://localhost:8080/proyecto/'
+  // URL = 'http://localhost:8080/proyecto/'
+  URL = 'https://portfolio-backend-1h0p.onrender.com/proyecto/'
 
   constructor(private http: HttpClient) { }
 
