@@ -21,6 +21,7 @@ import { EditaptitudComponent } from './componentes/aptitudes/editaptitud.compon
 import { EditproyectoComponent } from './componentes/proyectos/editproyecto.component';
 import { NewproyectoComponent } from './componentes/proyectos/newproyecto.component';
 import { NgCircleProgressModule } from 'ng-circle-progress';
+import { FooterComponent } from './componentes/footer/footer.component';
 
 const appRoutes:Routes=[
   {path:'', component:HomeComponent },
@@ -54,6 +55,7 @@ const appRoutes:Routes=[
     EditaptitudComponent,
     EditproyectoComponent,
     NewproyectoComponent,
+    FooterComponent,
 
   ],
   imports: [

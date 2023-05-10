@@ -1,11 +1,7 @@
 <div class="row">
-
-    <h1>Hard & Soft skills</h1>
-    <div class="col-lg-2">
-        <button type="button" routerLink="/nuevaapt" class="btn btn-dark" *ngIf="isLogged">Nueva Skill</button>
-    </div>
-    <div class="text-center col-sm-4 col-md-4 col-lg-4 circulo" *ngFor="let Aptitud of aptitud">
-        <circle-progress 
+    <h1 class="tit">Hard & Soft skills  <button type="button" routerLink="/nuevaapt" class="btn btn-dark" *ngIf="isLogged">Agregar skill</button></h1>
+    <div class="text-center circu" *ngFor="let Aptitud of aptitud">
+        <circle-progress class="col-sm"
         [percent]="(Aptitud.descripcion)" 
         [radius]="90" [imageSrc]="''" 
         [title]="(Aptitud.nombre)"
@@ -23,7 +19,7 @@
         [animation]="true" 
         [animationDuration]="600">
         </circle-progress>
-        <div>
+        <div class="circuboto">
             <td *ngIf="isLogged">
                 <button class="btn btn-light" routerLink="/editapt/{{Aptitud.id}}">
                     <i class="uil uil-edit"></i></button>
@@ -33,6 +29,5 @@
                     <i class="uil uil-trash-alt"></i></button>
             </td>
         </div>
-        
     </div>
 </div>
